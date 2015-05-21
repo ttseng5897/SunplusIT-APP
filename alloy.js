@@ -10,6 +10,18 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
+if(Titanium.App.Properties.hasProperty('loginAccount') == false) { Titanium.App.Properties.setString('loginAccount',''); }
+if(Titanium.App.Properties.hasProperty('lastIP') == false) { Titanium.App.Properties.setString('lastIP',''); }
+
+function isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
 var osname = Ti.Platform.osname;
 
 var isIos = (osname === 'iphone' || osname === 'ipad');
@@ -33,3 +45,5 @@ var actInd = Titanium.UI.createActivityIndicator({
 if (ActivityIndicatorStyle) {
 	actInd.style = ActivityIndicatorStyle.PLAIN;
 }
+
+var mainWindow = Alloy.createController('main').getView();

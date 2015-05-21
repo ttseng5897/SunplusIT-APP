@@ -1,0 +1,23 @@
+"#mainLogo": {
+	width: Ti.UI.SIZE,
+	height: 50,
+	top: 0
+}
+
+"#winMessage": {
+	backgroundColor: "#fff"
+}
+
+"#winForms": {
+	backgroundColor: "#fff"
+}
+
+"#viewListWaittingForms": {
+	width: Ti.UI.SIZE,
+	top: 70,
+	bottom: 0
+}
+
+"#listviewFormsWaitting": {
+	
+}

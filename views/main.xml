@@ -1,0 +1,24 @@
+    <Alloy>
+        <TabGroup backgroundColor="white" >
+            <Tab id="tabMessage" title="Message" icon="KS_nav_views.png">
+                <Window id="winMessage">
+                   <ImageView id="mainLogo" image="/images/sunplusit_icon.png"></ImageView>
+                </Window>
+            </Tab>
+            <Tab id="tabForms" title="Forms" icon="KS_nav_views.png">
+                <Window id="winForms">
+                    <ImageView id="mainLogo" image="/images/sunplusit_icon.png"></ImageView>
+                    <View id="viewListWaittingForms">
+					<ListView id="listviewFormsWaitting">
+						<PullView>
+			                <View backgroundColor="red" height="50">
+			                    <Label>Release to reload</Label>
+			                </View>
+			            </PullView>
+					</ListView>
+				</View>
+                </Window>
+            </Tab>
+            <!-- Use the Require tag to include external Ti.UI.Tab views -->
+        </TabGroup>
+    </Alloy>

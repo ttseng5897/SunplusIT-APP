@@ -79,12 +79,4 @@
 		}
 	}
 
-"#viewListWaittingForms": {
-	width: Ti.UI.SIZE,
-	top: 70,
-	bottom: 0
-}
 
-"#listviewFormsWaitting": {
-	
-}

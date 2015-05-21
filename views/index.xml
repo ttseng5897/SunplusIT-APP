@@ -10,14 +10,6 @@
 				<Button id="btnLogin" onClick="chkLogin">登入</Button>
 			</View>
 		</View>
-		<View id="viewListWaittingForms" visible="false">
-			<ListView id="listviewFormsWaitting">
-				<PullView>
-	                <View backgroundColor="red" height="50">
-	                    <Label>Release to reload</Label>
-	                </View>
-	            </PullView>
-			</ListView>
-		</View>
+		
 	</Window>
 </Alloy>
