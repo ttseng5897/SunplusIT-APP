@@ -1,0 +1,23 @@
+<Alloy>
+	<Window title="請登入">
+		<ImageView id="mainLogo" image="/images/sunplusit_icon.png"></ImageView>
+		<View id="viewLoginArea" visible="true">
+			<View id="viewDisplayMain">
+				<Label id="lblAcct">帳號</Label>
+				<TextField id="texfieldAcct"></TextField>
+				<Label id="lblPwd">密碼</Label>
+				<TextField passwordMask="true" id="texfieldPwd"></TextField>
+				<Button id="btnLogin" onClick="chkLogin">登入</Button>
+			</View>
+		</View>
+		<View id="viewListWaittingForms" visible="false">
+			<ListView id="listviewFormsWaitting">
+				<PullView>
+	                <View backgroundColor="red" height="50">
+	                    <Label>Release to reload</Label>
+	                </View>
+	            </PullView>
+			</ListView>
+		</View>
+	</Window>
+</Alloy>

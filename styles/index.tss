@@ -1,0 +1,90 @@
+"Window": {
+	backgroundColor: "#fff"
+}
+
+"#mainLogo": {
+	width: Ti.UI.SIZE,
+	height: 50,
+	top: 20
+}
+
+"#viewDisplayMain": {
+	width: Ti.UI.SIZE,
+	top: 70,
+	bottom: 0
+}
+
+"#viewLoginArea": {
+	width: Ti.UI.SIZE,
+	height: 250
+}
+
+	"#lblAcct": {
+		width: "70%",
+		height: 20,
+		top: 0,
+		color: "#000",
+		font: {
+			fontSize: 18,
+			fontFamily: 'Helvetica Neue'
+		},
+		textAlign: 'left'
+	}
+	
+	"#texfieldAcct": {
+		width: "70%",
+		height: 25,
+		top: 25,
+		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		color: "#999",
+		font: {
+			fontSize: 16,
+			fontFamily: 'Helvetica Neue'
+		}
+	}
+	
+	"#lblPwd": {
+		width: "70%",
+		height: 20,
+		top: 60,
+		color: "#000",
+		font: {
+			fontSize: 18,
+			fontFamily: 'Helvetica Neue'
+		},
+		textAlign: 'left'
+	}
+	
+	"#texfieldPwd": {
+		width: "70%",
+		height: 25,
+		top: 90,
+		color: "#999",
+		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		font: {
+			fontSize: 16,
+			fontFamily: 'Helvetica Neue'
+		}
+	}
+	
+	"#btnLogin": {
+		width: "70%",
+		height: 35,
+		top: 135,
+		color: "#FFF",
+		backgroundColor: "#f76707",
+		font: {
+			fontSize: 22,
+			fontFamily: 'Helvetica Neue'
+		}
+	}
+
+"#viewListWaittingForms": {
+	width: Ti.UI.SIZE,
+	top: 70,
+	bottom: 0
+}
+
+"#listviewFormsWaitting": {
+	
+}
