@@ -11,9 +11,9 @@ $.lblContent.text = formData[0].content;
 $.btnFlow.addEventListener('click',function() {
 	var txtDisplay = formData[0].flow;
 	var dialog = Ti.UI.createAlertDialog({
-	    message: '已跑流程：\n' + txtDisplay.replace(/<br>/gm,"\n") + ' \n目前流程：' + formData[0].flow_now,
+	    message: '目前流程：' + formData[0].flow_now + '\n\n' + txtDisplay.replace(/<br>/gm,"\n"),
 	    ok: 'OK',
-	    title: formData[0].flow_now
+	    title: '簽核流程資訊'
 	});
 	dialog.show();
 });

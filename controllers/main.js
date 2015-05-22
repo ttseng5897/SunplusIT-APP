@@ -34,6 +34,7 @@ function fetchDataToList(dataSet) {
 			 } ];
 		Titanium.App.Properties.setList('formContentValue',passData);
 		var viewForm = Alloy.createController('viewForm').getView();
+		Ti.API.log('Add a Popin View!');
 		UI.popIn(viewForm);
 	});
 }
@@ -79,10 +80,16 @@ function updateListView() {
 	*/
 }
 
+Ti.API.log('UpdateListView !!!!');
+updateListView();
+		
+/*
 $.winForms.addEventListener('open',function()
 	{
+		Ti.API.log('UpdateListView !!!!');
 		updateListView();
 });
+*/
 
 //------------------------------------------------
 var u = Ti.Android != undefined ? 'dp' : 0;
