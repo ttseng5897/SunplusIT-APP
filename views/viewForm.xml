@@ -1,0 +1,18 @@
+  <Alloy>
+  	<View id="mainForm">
+  		<Button id="btnFlow"></Button>
+  		<Button id="btnApplicant"></Button>
+  		<Label id="lblSubject"></Label>
+  		<ScrollView id="scrollviewContent">
+  			<View id="viewContent">
+  				<Label id="lblContent"></Label>
+  			</View>
+  		</ScrollView>
+	  	<View id="viewSignType_3" visible="true">
+	  		<Label id="lblComment"></Label>
+	  		<TextArea id="textareaComment"></TextArea>
+	  		<Button id="btnAccept"></Button>
+	  		<Button id="btnReject"></Button>
+	  	</View>	
+  	</View>
+  </Alloy>

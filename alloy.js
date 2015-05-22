@@ -12,6 +12,7 @@
 
 if(Titanium.App.Properties.hasProperty('loginAccount') == false) { Titanium.App.Properties.setString('loginAccount',''); }
 if(Titanium.App.Properties.hasProperty('lastIP') == false) { Titanium.App.Properties.setString('lastIP',''); }
+Titanium.App.Properties.setList('formContentValue', []);
 
 function isJson(str) {
     try {
@@ -23,6 +24,16 @@ function isJson(str) {
 }
 
 var osname = Ti.Platform.osname;
+
+var DEVICE_WIDTH = Titanium.Platform.displayCaps.platformWidth;
+var DEVICE_HEIGHT = Titanium.Platform.displayCaps.platformHeight;
+if(DEVICE_WIDTH>DEVICE_HEIGHT) {  //長邊視為高，無論橫向或直向
+	DEVICE_WIDTH = Titanium.Platform.displayCaps.platformHeight;
+	DEVICE_HEIGHT = Titanium.Platform.displayCaps.platformWidth;
+}
+
+
+var CAMERA_SCREEN_RATIO = (DEVICE_HEIGHT - (80*2)) / DEVICE_HEIGHT;
 
 var isIos = (osname === 'iphone' || osname === 'ipad');
 var isAndroid = (osname === 'android');
@@ -47,3 +58,6 @@ if (ActivityIndicatorStyle) {
 }
 
 var mainWindow = Alloy.createController('main').getView();
+
+//-------------------------------------------------------
+

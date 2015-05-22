@@ -1,0 +1,123 @@
+"#mainForm": {
+	width: 300,
+	height: 400,
+	top: 55,
+	backgroundColor: "#fff"
+}
+
+"#btnFlow": {
+	left: 10,
+	top: 10,
+	height: 30,
+	width: 30,
+	backgroundImage: "/images/flow.png"
+}
+
+"#btnApplicant": {
+	left: 45,
+	top: 10,
+	height: 30,
+	width: 30,
+	backgroundImage: "/images/applicant.png"
+}
+
+"#lblSubject": {
+	top: 45,
+	left: 10,
+	right: 10,
+	height: 50,
+	color: "#111",
+	font: {
+		fontSize: 18,
+		fontFamily: 'Helvetica Neue'
+	},
+	text: 'This is Title',
+	textAlign: 'left'
+}
+
+"#scrollviewContent": {
+	top: 100,
+	left: 10,
+	right: 10,
+	bottom: 90
+}
+
+"#viewContent": {
+	top: 0,
+	left: 0,
+	right: 0,
+	height: "auto"
+}
+
+"#lblContent": {
+	top: 0,
+	left: 0,
+	right: 10,
+	height: "auto",
+	textAlign: 'left',
+	font: {
+		fontSize: 14,
+		fontFamily: 'Helvetica Neue'
+	}
+}
+
+"#viewSignType_3": {
+	bottom: 10,
+	left: 0,
+	right: 0,
+	height: 130
+}
+
+"#lblComment": {
+	top: 0,
+	left: 10,
+	right: 10,
+	height: 20,
+	font: {
+		fontSize: 15,
+		fontFamily: 'Helvetica Neue'
+	},
+	text: '意見輸入'
+}
+
+"#textareaComment": {
+	top: 25,
+	left: 10,
+	right: 10,
+	height: 60,
+	borderColor : 'gray',
+    color : '#000',
+	hintText: "輸入意見",
+	font: {
+		fontSize: 14,
+		fontFamily: 'Helvetica Neue'
+	}
+}
+
+"#btnAccept": {
+	left: 5,
+	bottom: 0,
+	width: 90,
+	height: 40,
+	color: "#FFF",
+	title: "核准",
+	backgroundColor: "#115eed",
+	font: {
+		fontSize: 22,
+		fontFamily: 'Helvetica Neue'
+	}
+}
+
+"#btnReject": {
+	right: 5,
+	bottom: 0,
+	width: 90,
+	height: 40,
+	color: "#FFF",
+	title: "退回",
+	backgroundColor: "#d81a1a",
+	font: {
+		fontSize: 22,
+		fontFamily: 'Helvetica Neue'
+	}
+}
