@@ -1,3 +1,6 @@
+// ------> Start Functions
+// --> Backup
+/*
 function fetchDataToList(dataSet) {
 	var sections = [];
 	var listDataSet = [];
@@ -7,20 +10,14 @@ function fetchDataToList(dataSet) {
 	for (var key in dataSet) {
 		if (dataSet.hasOwnProperty(key)) {
 		  listDataSet.push( {properties: { title: dataSet[key].form_subject, height: "auto", color: "gray", 
-		  	font: { fontSize: 13 }, form_content1: dataSet[key].form_content1,
+		  	font: { fontSize: 13 }, seqno: dataSet[key].seqno, form_content1: dataSet[key].form_content1,
 		  	form_content2: dataSet[key].form_content2, applicant_account: dataSet[key].applicant_account, applicant_name: dataSet[key].applicant_name,
 		  	applicant_dept: dataSet[key].applicant_dept, signflow_now: dataSet[key].signflow_now, signflow_msg: dataSet[key].signflow_msg,
 		  	applicant_ext: dataSet[key].applicant_ext, sign_type: dataSet[key].sign_type, form_createdate: dataSet[key].form_createdate
 		  	  } } );
 		}
 	}
-	/*
-	var listDataSet = [
-	    {properties: { title: "黎孟巡 建立的 財產調撥單 ，請您處理!!", height: "auto", color: "gray", font: { fontSize: 13 } } },
-	    {properties: { title: "李建壹 建立的 財產調撥單 ，請您處理!!", height: "auto", color: "gray", font: { fontSize: 13 } } },
-	];
-	
-	*/
+
 	titleSection.setItems(listDataSet);
 	sections.push(titleSection);
 	$.listviewFormsWaitting.sections = sections;
@@ -28,7 +25,7 @@ function fetchDataToList(dataSet) {
 	$.listviewFormsWaitting.addEventListener('itemclick', function(e){
 		var item = titleSection.getItemAt(e.itemIndex);
 		Ti.API.log(item.properties.title);
-		var passData = [ { "title": item.properties.title, content: item.properties.form_content1 + item.properties.form_content2 , 
+		var passData = [ { "seqno": item.properties.seqno, "title": item.properties.title, content: item.properties.form_content1 + item.properties.form_content2 , 
 			flow: item.properties.signflow_msg, flow_now: item.properties.signflow_now, applicant_name: item.properties.applicant_name,
 			applicant_dept: item.properties.applicant_dept, applicant_ext: item.properties.applicant_ext, applicant_date: item.properties.form_createdate
 			 } ];
@@ -36,6 +33,63 @@ function fetchDataToList(dataSet) {
 		var viewForm = Alloy.createController('viewForm').getView();
 		Ti.API.log('Add a Popin View!');
 		UI.popIn(viewForm);
+	});
+}
+*/
+function fetchDataToList(dataSet) {
+	var sections = [];
+	var listDataSet = [];
+	
+	var titleSection;	
+	var lastFormType = '';
+	var numArray = 0;
+	
+	for (var key in dataSet) {
+
+		if (dataSet.hasOwnProperty(key)) {
+			
+		 if (lastFormType == '' || dataSet[key].form_type != lastFormType) {
+		 	if(lastFormType != '') {
+		 		
+		 		titleSection.setItems(listDataSet[numArray]);
+				sections.push(titleSection);
+				
+				numArray++;
+		 	}
+	
+		 	titleSection = Ti.UI.createListSection({ headerTitle: dataSet[key].form_type });
+		 	listDataSet[numArray] = [];
+		 	lastFormType = dataSet[key].form_type;
+		 }
+		 
+		  listDataSet[numArray].push( {properties: { title: dataSet[key].form_subject, height: "auto", color: "gray", 
+		  	font: { fontSize: 13 }, seqno: dataSet[key].seqno, form_content1: dataSet[key].form_content1,
+		  	form_content2: dataSet[key].form_content2, applicant_account: dataSet[key].applicant_account, applicant_name: dataSet[key].applicant_name,
+		  	applicant_dept: dataSet[key].applicant_dept, signflow_now: dataSet[key].signflow_now, signflow_msg: dataSet[key].signflow_msg,
+		  	applicant_ext: dataSet[key].applicant_ext, sign_type: dataSet[key].sign_type, form_createdate: dataSet[key].form_createdate
+		  	  } } );	
+		  
+		}
+	}
+
+	
+	$.listviewFormsWaitting.sections = sections;
+	//$.listviewFormsWaitting.setSections(sections);
+	$.listviewFormsWaitting.addEventListener('itemclick', function(e){
+		var sectionsAll = $.listviewFormsWaitting.getSections();
+		var titleSection = sectionsAll[e.sectionIndex]; 
+		
+		var item = titleSection.getItemAt(e.itemIndex);
+
+		var passData = [ { "seqno": item.properties.seqno, "title": item.properties.title, content: item.properties.form_content1 + item.properties.form_content2 , 
+			flow: item.properties.signflow_msg, flow_now: item.properties.signflow_now, applicant_name: item.properties.applicant_name,
+			applicant_dept: item.properties.applicant_dept, applicant_ext: item.properties.applicant_ext, applicant_date: item.properties.form_createdate
+			 } ];
+		Titanium.App.Properties.setList('formContentValue',passData);
+		var viewForm = Alloy.createController('viewForm').getView();
+		Ti.API.log('Add a Popin View!');
+		UI.popIn(viewForm);
+		
 	});
 }
 
@@ -72,26 +126,10 @@ function updateListView() {
 	    ACT : txtAccount,
 	    IP : Titanium.App.Properties.getString('lastIP')
 	});
-	/*
-	var sections = [];
-	var basicDataSet = [];
-	var basicSection = Ti.UI.createListSection({ headerTitle: '資產調撥單'});
-	basicDataSet.push({properties: { title: 'Selection Style', itemId: 'list_selection_style', accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_DETAIL, height:44}});
-	*/
 }
+// ------> End Functions
 
-Ti.API.log('UpdateListView !!!!');
-updateListView();
-		
-/*
-$.winForms.addEventListener('open',function()
-	{
-		Ti.API.log('UpdateListView !!!!');
-		updateListView();
-});
-*/
-
-//------------------------------------------------
+// Start Popup Window Function
 var u = Ti.Android != undefined ? 'dp' : 0;
 
 var UI = {
@@ -130,6 +168,7 @@ function popInView(view) {
         UI.popOut(view);
     });
     view.add(closeButton);
+  
 
     if (Ti.Android) {
         UI.add(view);
@@ -157,6 +196,10 @@ function popInView(view) {
         });
         view.animate(tooBig);
     }
+    
+    Ti.App.addEventListener('removeForm', function(e) {
+		closeButton.fireEvent('click');
+	});
 }
 
 function popOutView(view) {
@@ -201,4 +244,15 @@ function fadeOutView(view) {
     });
     view.animate(fade);
 }
+// End Popup Window Function
+
+Ti.App.addEventListener('updateFormList', function(e) {
+	updateListView();
+});
+
+// ------> Start Actions
+
+updateListView();		
+// ------> End Actions
+
 

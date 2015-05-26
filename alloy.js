@@ -10,10 +10,7 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
-if(Titanium.App.Properties.hasProperty('loginAccount') == false) { Titanium.App.Properties.setString('loginAccount',''); }
-if(Titanium.App.Properties.hasProperty('lastIP') == false) { Titanium.App.Properties.setString('lastIP',''); }
-Titanium.App.Properties.setList('formContentValue', []);
-
+// ------> Start Global Functions
 function isJson(str) {
     try {
         JSON.parse(str);
@@ -23,6 +20,13 @@ function isJson(str) {
     return true;
 }
 
+//<------- End Global Functions
+
+// ------> Start Global Parameters
+if(Titanium.App.Properties.hasProperty('loginAccount') == false) { Titanium.App.Properties.setString('loginAccount',''); }
+if(Titanium.App.Properties.hasProperty('lastIP') == false) { Titanium.App.Properties.setString('lastIP',''); }
+Titanium.App.Properties.setList('formContentValue', []);
+
 var osname = Ti.Platform.osname;
 
 var DEVICE_WIDTH = Titanium.Platform.displayCaps.platformWidth;
@@ -31,8 +35,6 @@ if(DEVICE_WIDTH>DEVICE_HEIGHT) {  //長邊視為高，無論橫向或直向
 	DEVICE_WIDTH = Titanium.Platform.displayCaps.platformHeight;
 	DEVICE_HEIGHT = Titanium.Platform.displayCaps.platformWidth;
 }
-
-
 var CAMERA_SCREEN_RATIO = (DEVICE_HEIGHT - (80*2)) / DEVICE_HEIGHT;
 
 var isIos = (osname === 'iphone' || osname === 'ipad');
@@ -42,6 +44,9 @@ var sdkVersion = parseFloat(Ti.version);
 
 var indicatorAdded = false;
 
+//<------- End Global Parameters
+
+// ------> Start Global Objects
 var ActivityIndicatorStyle;
 if (isIos) {
 	ActivityIndicatorStyle = Titanium.UI.iPhone.ActivityIndicatorStyle;
@@ -59,5 +64,5 @@ if (ActivityIndicatorStyle) {
 
 var mainWindow = Alloy.createController('main').getView();
 
-//-------------------------------------------------------
+//<------- End Global Objects
 

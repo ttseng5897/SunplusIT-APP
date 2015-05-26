@@ -1,4 +1,4 @@
-
+// ------> Start Functions
 
 function chkLogin() {	
 	var txtAccount = $.texfieldAcct.value;
@@ -70,4 +70,12 @@ function chkLogin() {
 	});
 }
 
+// ------> End Functions
+
+// ------> Start Page Actions
+$.texfieldAcct.value = Titanium.App.Properties.getString('loginAccount');
+
 $.index.open();
+$.texfieldPwd.focus();
+
+// ------> End Page Actions
