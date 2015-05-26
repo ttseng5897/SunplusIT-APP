@@ -75,7 +75,10 @@ function fetchDataToList(dataSet) {
 	
 	$.listviewFormsWaitting.sections = sections;
 	//$.listviewFormsWaitting.setSections(sections);
-	$.listviewFormsWaitting.addEventListener('itemclick', function(e){
+	
+	$.listviewFormsWaitting.removeEventListener('itemclick', clickFormAction);
+	
+	clickFormAction = function(e){
 		var sectionsAll = $.listviewFormsWaitting.getSections();
 		var titleSection = sectionsAll[e.sectionIndex]; 
 		
@@ -89,8 +92,11 @@ function fetchDataToList(dataSet) {
 		var viewForm = Alloy.createController('viewForm').getView();
 		Ti.API.log('Add a Popin View!');
 		UI.popIn(viewForm);
-		
-	});
+	};
+	
+	
+	$.listviewFormsWaitting.addEventListener('itemclick', clickFormAction);
+
 }
 
 function updateListView() {
@@ -246,12 +252,14 @@ function fadeOutView(view) {
 }
 // End Popup Window Function
 
+
+
 Ti.App.addEventListener('updateFormList', function(e) {
+
 	updateListView();
 });
 
 // ------> Start Actions
-
 updateListView();		
 // ------> End Actions
 

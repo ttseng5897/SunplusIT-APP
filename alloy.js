@@ -44,6 +44,8 @@ var sdkVersion = parseFloat(Ti.version);
 
 var indicatorAdded = false;
 
+var clickFormAction = function() { Ti.API.info("Click Listview Event listener called."); }
+
 //<------- End Global Parameters
 
 // ------> Start Global Objects
@@ -62,7 +64,7 @@ if (ActivityIndicatorStyle) {
 	actInd.style = ActivityIndicatorStyle.PLAIN;
 }
 
-var mainWindow = Alloy.createController('main').getView();
+
 
 //<------- End Global Objects
 

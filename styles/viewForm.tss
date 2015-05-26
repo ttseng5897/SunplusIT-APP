@@ -39,7 +39,7 @@
 	top: 100,
 	left: 10,
 	right: 10,
-	bottom: 90
+	bottom: 70
 }
 
 "#viewContent": {
@@ -65,7 +65,7 @@
 	bottom: 10,
 	left: 0,
 	right: 0,
-	height: 130
+	height: 60
 }
 
 "#lblComment": {

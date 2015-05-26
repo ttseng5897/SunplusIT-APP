@@ -9,7 +9,7 @@
   			</View>
   		</ScrollView>
 	  	<View id="viewSignType_3" visible="true">
-	  		<Label id="lblComment"></Label>
+	  		<Label id="lblComment" visible="false"></Label>
 	  		<TextArea id="textareaComment" visible="false"></TextArea>
 	  		<Button id="btnAccept"></Button>
 	  		<Button id="btnReject"></Button>

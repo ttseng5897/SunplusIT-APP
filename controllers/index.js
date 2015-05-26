@@ -38,6 +38,7 @@ function chkLogin() {
 		        	Titanium.App.Properties.setString('loginAccount',txtAccount);
 		        	Titanium.App.Properties.setString('lastIP',Titanium.Platform.address);
 		        	//updateListView();
+		        	var mainWindow = Alloy.createController('main').getView();
 		        	mainWindow.open();
 		        }else{
 		        	$.texfieldPwd.value = "";
